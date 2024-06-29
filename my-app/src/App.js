@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Lists from './Lists'
 import Data from './Api-data'
 import Tour from './Tour'
@@ -13,7 +13,29 @@ import Tour from './Tour'
 
 function App() {
 
-  
+  const [pData,setPeople]=useState(Data);
+
+  const change=(id)=>{
+         const newPeople=pData.filter((A)=>{
+              return A.id!==id;
+         })    
+         setPeople(newPeople)    
+  }
+
+  //  function changePeople(id){
+  //   const newpeople=pData.filter((A)=>{
+  //               return A.id!==id;
+  //   })
+  //    setPeople(newpeople)
+  // }
+
+  // useEffect(()=>{
+  //   setPeople(Data)
+  // },[])
+
+
+
+
 
 
   return (
@@ -21,11 +43,11 @@ function App() {
       <section className="body">
         <section className="container">
 {
-          Data.map((data)=>{
+          pData.map((data)=>{
                 
                 return (
                   
-                  <Tour key={data.id} data={data}></Tour>
+                  <Tour key={data.id} data={data} changePeople={change}></Tour>
                   
                 )
           })

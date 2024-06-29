@@ -2,19 +2,22 @@ import React from 'react';
 
 
 
-const Tour=({data})=>{
+const Tour=(props)=>{
+
+
 
 
     return (
         <>
          
          <section className="tour-element">
-            <img src={data.image}></img>
+            <img src={props.data.image}></img>
             <section className='price'>
-            <h4>{data.name}</h4>
-            <h4>${data.price}</h4>
+            <h4>{props.data.name}</h4>
+            <h4>${props.data.price}</h4>
             </section>
-            <p>{data.info}</p>
+            <p>{props.data.info}</p>
+            <button onClick={()=>{props.changePeople(props.data.id)}}> Not Interested </button>
 
 
 
