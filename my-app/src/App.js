@@ -13,7 +13,7 @@ import Tour from './Tour'
 
 function App() {
 
-  const [pData,setPeople]=useState(Data);
+  const [pData,setPeople]=useState([]);
 
   const change=(id)=>{
          const newPeople=pData.filter((A)=>{
@@ -22,26 +22,23 @@ function App() {
          setPeople(newPeople)    
   }
 
-  //  function changePeople(id){
-  //   const newpeople=pData.filter((A)=>{
-  //               return A.id!==id;
-  //   })
-  //    setPeople(newpeople)
-  // }
 
-  // useEffect(()=>{
-  //   setPeople(Data)
-  // },[])
+  useEffect(()=>{
+      setPeople(Data)
+  },[])
 
 
-
-
+  const Reset=()=>{
+    setPeople(Data)
+  }
 
 
   return (
     <>
       <section className="body">
         <section className="container">
+
+          {pData.length==0 && <button className='btn' onClick={()=>{Reset()}}>Reset</button>}
 {
           pData.map((data)=>{
                 
@@ -51,6 +48,8 @@ function App() {
                   
                 )
           })
+
+          
 
         }
           

@@ -34,6 +34,10 @@
   --spacing: 0.1rem;
   --radius: 0.25rem;
 }
+ #root{
+  background-color:hsl(212, 33%, 89%);
+  height:100vh;
+} 
 
 .body{
 
@@ -111,3 +115,20 @@
 .tour-element p{
   width:98%;
 }
+.btn{
+  width:100%;
+  height:30px;
+  border: none;
+  background-color: aqua;
+}
+#readmore{
+  border:none;
+  background: none;
+  color:blue;
+  text-decoration-line: underline;
+}
+#readmore:hover{
+  cursor: pointer;
+  text-shadow:#756868;
+}
+
